@@ -1,0 +1,31 @@
+server:
+    port: 8080
+    servlet-path: /education-service
+    connectionTimeout: 3000
+
+#数据源配置
+datasource:
+    url: jdbc:mysql://127.0.0.1:3306/medications?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
+    username: root
+    password: shiyue
+    driverClassName: com.mysql.jdbc.Driver
+    maxActive: 200
+    initialSize: 20
+    maxWait: 60000
+    minIdle: 10
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+
+## 服务名称可自定义
+spring:
+    aop:
+      auto: true
+      proxy-target-class: false
+    application:
+      name: education-server
+    http:
+      multipart: #设置上传文件大小
+          enabled: true
+          max-file-size: 50MB #(这里是限制的文件大小)
+          max-request-size: 50MB #(这里是限制的文件大小)
+
